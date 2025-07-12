@@ -1,15 +1,14 @@
-pipeline{
+pipeline {
     agent any
-        environment {
+
+    environment {
         DOCKER_IMAGE = 'kevalp566/ci-cd-project1'
     }
 
-    stages{
-
-        stage("Clone Repo")
-        {
-            steps{
-                git branch: 'main', url: 'https://github.com/kevalp566/jenkins-ci-demo.git'
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/kevalp566/jenkins-ci-demo.git'
             }
         }
 
@@ -22,7 +21,7 @@ pipeline{
             }
         }
 
-stage('Docker Build & Push') {
+        stage('Docker Build & Push') {
             dir('CI_CD_Project1') {
                 steps {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
