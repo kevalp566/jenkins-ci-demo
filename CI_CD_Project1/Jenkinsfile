@@ -18,11 +18,13 @@ pipeline{
                 }
                   }
         }
-        
+
         stage("Test")
         {
             steps{
+            dir('CI_CD_Project1') {    
                 sh 'npm test'
+                }
             }
         }
 
