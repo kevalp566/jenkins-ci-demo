@@ -1,2 +1,3 @@
 # Jenkins CI/CD Demo
-This is a simple Node.js app to test CI/CD pipeline with Jenkins.
+# This project will crate build of node js application and creae docker image of it.
+# Once its done it will deploy the image on contaier.
