@@ -5,7 +5,7 @@ From node:18
 WORKDIR /app
 
 # Copy dependency file and install
-COPY CI_CD_Project1/package* .json ./
+COPY package*.json ./
 RUN npm install
 
 #Copy rest of the app
