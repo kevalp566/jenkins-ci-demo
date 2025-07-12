@@ -36,10 +36,14 @@ pipeline {
         }
         stage('Deploy Docker Container') {
         steps {
-            sh '''
-                docker rm -f ci_cd_app || true
-                docker pull kevalp566/ci-cd-project1:latest
-                docker run -d --name ci_cd_app -p 3000:3000 kevalp566/ci-cd-project1:latest
+         sh '''
+            docker rm -f ci_cd_app || true
+            docker pull kevalp566/ci-cd-project1:latest
+            docker run -d \
+                --name ci_cd_app \
+                --restart unless-stopped \
+                -p 3000:3000 \
+                kevalp566/ci-cd-project1:latest
             '''
             }
       }
