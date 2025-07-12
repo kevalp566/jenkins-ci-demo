@@ -12,11 +12,13 @@ pipeline{
 
         stage("Install")
         {
-            steps{
-                sh 'npm install'
-            }
+            steps {
+            dir('CI_CD_Project1') {
+                    sh 'npm test'
+                }
+                  }
         }
-
+        
         stage("Test")
         {
             steps{
