@@ -38,8 +38,8 @@ pipeline {
         steps {
             sh '''
                 docker rm -f ci_cd_app || true
-                docker pull your-dockerhub-username/ci-cd-project1:latest
-                docker run -d --name ci_cd_app -p 3000:3000 your-dockerhub-username/ci-cd-project1:latest
+                docker pull kevalp566/ci-cd-project1:latest
+                docker run -d --name ci_cd_app -p 3000:3000 kevalp566/ci-cd-project1:latest
             '''
             }
       }
